@@ -1,0 +1,10 @@
+Counterexample:
+bank = 0
+a = 0
+
+Transaction trace:
+_MAIN_.constructor()
+  --> original.sol:26:9:
+   |
+26 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^

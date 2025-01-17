@@ -1,0 +1,12 @@
+Counterexample:
+bank = 0
+a = 3
+
+Transaction trace:
+Reproduction.constructor(0x0)
+State: bank = 0
+Reproduction.triggerAssertionFailure()
+  --> generated_contract.sol:38:9:
+   |
+38 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^

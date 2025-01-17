@@ -1,0 +1,5 @@
+Assertion violation might happen here.
+  --> generated_contract.sol:24:9:
+   |
+24 |         assert(new_contract_balance == old_contract_balance - amount);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

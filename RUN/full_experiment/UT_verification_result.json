@@ -1,0 +1,5 @@
+Assertion violation happens here.
+  --> original.sol:25:9:
+   |
+25 |         assert(new_user_balance == old_user_balance + amount);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

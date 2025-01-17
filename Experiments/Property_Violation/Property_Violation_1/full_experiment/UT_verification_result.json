@@ -1,0 +1,5 @@
+Warning: CHC: Assertion violation happens here.
+  --> original.sol:22:9:
+   |
+22 |         assert(_a == 4);
+   |         ^^^^^^^^^^^^^^^

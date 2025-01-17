@@ -1,0 +1,5 @@
+Warning: CHC: Assertion violation happens here.
+  --> generated_contract.sol:19:9:
+   |
+19 |         assert(_a == 4);
+   |         ^^^^^^^^^^^^^^^
