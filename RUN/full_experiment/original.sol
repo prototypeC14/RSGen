@@ -1,288 +1,220 @@
+pragma solidity ^0.8.0;
+
 /**
- *Submitted for verification at Etherscan.io on 2019-09-24
-*/
+ * @dev Interface of the ERC20 standard as defined in the EIP.
+ */
+interface IERC20 {
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
 
-pragma solidity ^0.8.11;
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
 
-contract Owned {
-  mapping(address => uint) balances_intou2;
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
 
-function transfer_undrflow2(address _to, uint _value) public returns (bool) {
-    require(balances_intou2[msg.sender] - _value >= 0);  //bug
-    balances_intou2[msg.sender] -= _value;  //bug
-    balances_intou2[_to] += _value;  //bug
-    return true;
-  }
-  address public owner;
-  mapping(address => uint) public lockTime_intou17;
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
 
-function increaseLockTime_intou17(uint _secondsToIncrease) public {
-        lockTime_intou17[msg.sender] += _secondsToIncrease;  //overflow
-    }
-function withdraw_intou17() public {
-        require(block.timestamp > lockTime_intou17[msg.sender]);    
-        uint transferValue_intou17 = 10;           
-        payable(msg.sender).transfer(transferValue_intou17);
-    }
-  address public newOwner;
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `to`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address to, uint256 amount) external returns (bool);
 
-  function bug_intou27() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-  event OwnershipTransferred(address indexed _from, address indexed _to);
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
 
-    constructor() public {
-        owner = msg.sender;
-    }
-function bug_intou32(uint8 p_intou32) public pure{
-    uint8 vundflw1=0;
-    vundflw1 = vundflw1 + p_intou32;   // overflow bug
-}
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
 
-    modifier onlyOwner {
-        require(msg.sender == owner || msg.sender == address(this));
-        _;
-    }
-
-    function transferOwnership(address _newOwner) public onlyOwner {
-        newOwner = _newOwner;
-    }
-mapping(address => uint) balances_intou38;
-
-function transfer_intou38(address _to, uint _value) public returns (bool) {
-    require(balances_intou38[msg.sender] - _value >= 0);  //bug
-    balances_intou38[msg.sender] -= _value;  //bug
-    balances_intou38[_to] += _value;  //bug
-    return true;
-  }
-}
-
-library SafeMath {
-  function mul(uint256 a, uint256 b) internal pure returns (uint256) {
-    if (a == 0) {
-      return 0;
-    }
-    uint256 c = a * b;
-    assert(c / a == b);
-    return c;
-  }
-
-  function div(uint256 a, uint256 b) internal pure returns (uint256) {
-    uint256 c = a / b;
-    return c;
-  }
-
-  function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-    assert(b <= a);
-    return a - b;
-  }
-
-  function add(uint256 a, uint256 b) internal pure returns (uint256) {
-    uint256 c = a + b;
-    assert(c >= a);
-    return c;
-  }
-
-  function ceil(uint256 a, uint256 m) internal pure returns (uint256) {
-    uint256 c = add(a,m);
-    uint256 d = sub(c,1);
-    return mul(div(d,m),m);
-  }
+    /**
+     * @dev Moves `amount` tokens from `from` to `to` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address from, address to, uint256 amount) external returns (bool);
 }
 
-abstract contract Token{
-    function balanceOf(address who) external view virtual returns (uint256);
-function bug_intou4(uint8 p_intou4) public pure{
-    uint8 vundflw1=0;
-    vundflw1 = vundflw1 + p_intou4;   // overflow bug
-}
-    function transferFrom(address from, address to, uint256 value) external virtual returns (bool);
-function bug_intou7() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-    function transfer(address to, uint256 value) external virtual returns (bool);
-function bug_intou23() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
+contract ERC20 is IERC20 {
+    mapping(address => uint256) private _balances;
+    uint256 private _totalSupply;
+
+    constructor(uint256 amount) {
+        _totalSupply += amount;
+	_balances[msg.sender] += amount;
+    }
+
+    function totalSupply() public view returns (uint256) {
+        return _totalSupply;
+    }
+
+    function balanceOf(address account) public view returns (uint256) {
+        return _balances[account];
+    }
+
+    /**
+     * Requirements:
+     * - `to` cannot be the zero address.
+     * - the caller must have a balance of at least `amount`.
+     */
+    function transfer(address to, uint256 amount) public returns (bool) {
+        _transfer(msg.sender, to, amount);
+        return true;
+    }
+
+    function allowance(address owner, address spender) public view returns (uint256) {
+        require (owner != address(0));
+	require (spender != address(0));
+	return _balances[owner];
+    }
+
+    /**
+     * NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on
+     * `transferFrom`. This is semantically equivalent to an infinite approval.
+     *
+     * Requirements:
+     * - `spender` cannot be the zero address.
+     */
+    function approve(address spender, uint256 amount) public view returns (bool) {
+        _approve(msg.sender, spender, amount);
+        return true;
+    }
+
+    /**
+     * @dev See {IERC20-transferFrom}.
+     *
+     *
+     * NOTE: Does not update the allowance if the current allowance
+     * is the maximum `uint256`.
+     *
+     * Requirements:
+     *
+     * - `from` and `to` cannot be the zero address.
+     * - `from` must have a balance of at least `amount`.
+     * - the caller must have allowance for ``from``'s tokens of at least
+     * `amount`.
+     */
+    function transferFrom(address from, address to, uint256 amount) public returns (bool) {
+        _spendAllowance(from, msg.sender, amount);
+        _transfer(from, to, amount);
+        return true;
+    }
+
+    function _transfer(address from, address to, uint256 amount) internal {
+        require (from != address(0));
+	require (to != address(0));
+
+	uint256 fromBalance = _balances[from];
+	require (fromBalance >= amount);
+	// unchecked {
+	// Overflow not possible: amount <= fromBalance <= totalSupply.
+	_balances[from] = fromBalance - amount;
+	// Overflow not possible: balance + amount is at most totalSupply, which we know fits into a uint256.
+	_balances[to] += amount;
+	// }
+    }
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the `owner` s tokens.
+     *
+     * This internal function is equivalent to `approve`, and can be used to
+     * e.g. set automatic allowances for certain subsystems, etc.
+     *
+     * Requirements:
+     *
+     * - `owner` cannot be the zero address.
+     * - `spender` cannot be the zero address.
+     */
+    function _approve(address owner, address spender, uint256 amount) internal pure {
+        require (owner != address(0));
+	require (spender != address(0));
+	require (amount >= 0);
+    }
+
+    /**
+     * @dev Updates `owner` s allowance for `spender` based on spent `amount`.
+     *
+     * Does not update the allowance amount in case of infinite allowance.
+     * Revert if not enough allowance is available.
+     *
+     */
+    function _spendAllowance(address owner, address spender, uint256 amount) internal view {
+        uint256 currentAllowance = allowance(owner, spender);
+        require (currentAllowance >= amount);
+	_approve(owner, spender, currentAllowance);
+    }
 }
 
-contract Staking is Owned{
-  mapping(address => uint) public lockTime_intou37;
+contract TokenTransfer {
+    ERC20 token;
+    bool ever_deposited;
 
-function increaseLockTime_intou37(uint _secondsToIncrease) public {
-        lockTime_intou37[msg.sender] += _secondsToIncrease;  //overflow
-    }
-function withdraw_intou37() public {
-        require(block.timestamp > lockTime_intou37[msg.sender]);    
-        uint transferValue_intou37 = 10;           
-        payable(msg.sender).transfer(transferValue_intou37);
-    }
-  Token public token;
-  function bug_intou3() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-  bool lock;
-  mapping(address => uint) public lockTime_intou9;
+    uint private sent;
+    uint initial_deposit;
 
-function increaseLockTime_intou9(uint _secondsToIncrease) public {
-        lockTime_intou9[msg.sender] += _secondsToIncrease;  //overflow
-    }
-function withdraw_intou9() public {
-        require(block.timestamp > lockTime_intou9[msg.sender]);    
-        uint transferValue_intou9 = 10;           
-        payable(msg.sender).transfer(transferValue_intou9);
-    }
-  uint256 public stakeTokens;
-  mapping(address => uint) public lockTime_intou25;
+    // ghost variables
+    uint _count_deposit;
 
-function increaseLockTime_intou25(uint _secondsToIncrease) public {
-        lockTime_intou25[msg.sender] += _secondsToIncrease;  //overflow
+    constructor(ERC20 token_) {
+        token = token_;
     }
-function withdraw_intou25() public {
-        require(block.timestamp > lockTime_intou25[msg.sender]);    
-        uint transferValue_intou25 = 10;           
-        payable(msg.sender).transfer(transferValue_intou25);
-    }
-  uint256 private basePercent = 200;
-    using SafeMath for uint256;
-  function bug_intou19() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-  uint256 public stakeTime = 1814400; // 3 weeks = 3*7*24*60*60  OR 1 week = 604800 secs, 3 weeks = 3*604800 = 1,814,400
-  mapping(address => uint) balances_intou26;
 
-function transfer_intou26(address _to, uint _value) public returns (bool) {
-    require(balances_intou26[msg.sender] - _value >= 0);  //bug
-    balances_intou26[msg.sender] -= _value;  //bug
-    balances_intou26[_to] += _value;  //bug
-    return true;
-  }
-  uint public stakePercentage = 30;
-  function bug_intou31() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-  event stakingstarted(address staker, uint256 tokens, uint256 time);
-  mapping(address => uint) public lockTime_intou13;
+    function deposit() public {
+        require(!ever_deposited);
 
-function increaseLockTime_intou13(uint _secondsToIncrease) public {
-        lockTime_intou13[msg.sender] += _secondsToIncrease;  //overflow
-    }
-function withdraw_intou13() public {
-        require(block.timestamp > lockTime_intou13[msg.sender]);    
-        uint transferValue_intou13 = 10;           
-        payable(msg.sender).transfer(transferValue_intou13);
-    }
-  event tokensRedeemed(address staker, uint256 stakedTokens, uint256 reward);
-    
-    struct stake{
-        uint256 time;
-        bool redeem;
-        uint256 tokens;
-    }
-  function bug_intou20(uint8 p_intou20) public pure{
-    uint8 vundflw1=0;
-    vundflw1 = vundflw1 + p_intou20;   // overflow bug
-}
-  mapping(address => stake) staker;
-    
-    
-    constructor(address tokenContractAddress) public{
-        token = Token(tokenContractAddress);
-        owner = msg.sender;
-        stakeTokens = 500 * 10 ** uint(10);
-    }
-mapping(address => uint) balances_intou14;
+        ever_deposited = true;
+        uint allowance = token.allowance(msg.sender, address(this));
+        token.transferFrom(msg.sender, address(this), allowance);
 
-function transfer_intou14(address _to, uint _value) public returns (bool) {
-    require(balances_intou14[msg.sender] - _value >= 0);  //bug
-    balances_intou14[msg.sender] -= _value;  //bug
-    balances_intou14[_to] += _value;  //bug
-    return true;
-  }
-    
-    function startStaking() public{
-        require(token.balanceOf(msg.sender) >= stakeTokens + findOnePercent(stakeTokens));
-        require(token.transferFrom(msg.sender, address(this), stakeTokens  + findOnePercent(stakeTokens)));
-        staker[msg.sender].time = block.timestamp;
-        staker[msg.sender].tokens =  staker[msg.sender].tokens + stakeTokens;
-        emit stakingstarted(msg.sender, staker[msg.sender].tokens, staker[msg.sender].time);
-    }
-mapping(address => uint) balances_intou30;
+        initial_deposit = token.totalSupply();
 
-function transfer_intou30(address _to, uint _value) public returns (bool) {
-    require(balances_intou30[msg.sender] - _value >= 0);  //bug
-    balances_intou30[msg.sender] -= _value;  //bug
-    balances_intou30[_to] += _value;  //bug
-    return true;
-  }
-    
-    function redeem() public{
-        require(!lock);
-        require(!staker[msg.sender].redeem);
-        require(staker[msg.sender].time + stakeTime <= block.timestamp);
-        require(token.transfer(msg.sender,staker[msg.sender].tokens));
-        require(token.transferFrom(owner, msg.sender ,staker[msg.sender].tokens * stakePercentage * 100 / 10000));
-        emit tokensRedeemed(msg.sender, staker[msg.sender].tokens, staker[msg.sender].tokens * stakePercentage * 100 / 10000);
-        staker[msg.sender].redeem = true;
-        staker[msg.sender].tokens = 0;
+        _count_deposit += 1;	
     }
-function bug_intou8(uint8 p_intou8) public pure{
-    uint8 vundflw1=0;
-    vundflw1 = vundflw1 + p_intou8;   // overflow bug
-}
-    
-    function changeStakeTokens(uint256 _NewTokensThreshold) public onlyOwner{
-        stakeTokens = _NewTokensThreshold * 10 ** uint(10);
-    }
-function bug_intou39() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-    
-    function changeStakeTime(uint256 _newStakeTime) public onlyOwner{
-        stakeTime = _newStakeTime;
-    }
-function bug_intou36(uint8 p_intou36) public pure{
-    uint8 vundflw1=0;
-    vundflw1 = vundflw1 + p_intou36;   // overflow bug
-}
-    
-    function changeStakingPercentage(uint _newStakePercentage) public onlyOwner{
-        stakePercentage = _newStakePercentage;
-        
-    }
-function bug_intou35() public pure{
-    uint8 vundflw =0;
-    vundflw = vundflw -10;   // underflow bug
-}
-    
-    function lockWithdrawals() public onlyOwner{
-        lock = true;
-    }
-function bug_intou40(uint8 p_intou40) public pure{
-    uint8 vundflw1=0;
-    vundflw1 = vundflw1 + p_intou40;   // overflow bug
-}
-    
-    function findOnePercent(uint256 value) private view returns (uint256)  {
-        uint256 roundValue = value.ceil(basePercent);
-        uint256 onePercent = roundValue.mul(basePercent).div(10000);
-        return onePercent;
-    }
-mapping(address => uint) public lockTime_intou33;
 
-function increaseLockTime_intou33(uint _secondsToIncrease) public {
-        lockTime_intou33[msg.sender] += _secondsToIncrease;  //overflow
+    function withdraw(uint amount) public {
+        sent += amount;
+        token.transfer(msg.sender, amount);
     }
-function withdraw_intou33() public {
-        require(block.timestamp > lockTime_intou33[msg.sender]);    
-        uint transferValue_intou33 = 10;           
-        payable(msg.sender).transfer(transferValue_intou33);
+    function invariant() public view {
+      assert(sent <= initial_deposit);
     }
 }
