@@ -1,0 +1,22 @@
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+ --> generated_contract.sol:8:13:
+  |
+8 |         x = x + 1;
+  |             ^^^^^
+
+Warning: CHC: Assertion violation happens here.
+Counterexample:
+x = 101
+a = 0
+b = 0
+
+Transaction trace:
+GasModel.constructor()
+State: x = 100
+GasModel.check()
+  --> generated_contract.sol:12:9:
+   |
+12 |         assert(b > a);
+   |         ^^^^^^^^^^^^^
+
+   //success

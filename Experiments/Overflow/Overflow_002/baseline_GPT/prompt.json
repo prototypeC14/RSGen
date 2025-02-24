@@ -1,0 +1,17 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+ //https://github.com/trailofbits/not-so-smart-contracts/blob/master/integer_overflow/integer_overflow_1.sol
+ pragma solidity ^0.8.15;
+
+ contract Overflow {
+     uint private sellerBalance=0;
+
+     function add(uint value) public returns (bool){
+         // <yes> <report> ARITHMETIC
+         sellerBalance += value; // possible overflow
+
+         // possible auditor assert
+         // assert(sellerBalance >= value);
+     }
+ }
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

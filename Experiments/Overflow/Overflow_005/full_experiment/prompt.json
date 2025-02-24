@@ -1,0 +1,45 @@
+Assume you are a blockchain expert specializing in analyzing vulnerabilities in smart contracts via formal verification. 
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+pragma solidity ^0.8.0;
+
+contract Bank {
+    uint public a;
+    uint public b;
+
+    constructor () public {
+        a = 3;
+        b = 0;
+    }
+    function transfer(uint _a, uint _b) public returns(uint) {
+        return _a + _b;
+    }
+}
+
+The verifier <tool> identified a Overflow in this program and generated a counterexample that describes the state and sequence of interactions leading to the property violation. 
+The counterexample is provided below: <counterexample text>.
+Counterexample:
+a = 3, b = 0
+_a = 1
+_b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+ = 0
+
+Transaction trace:
+Bank.constructor()
+State: a = 3, b = 0
+Bank.transfer(1, 115792089237316195423570985008687907853269984665640564039457584007913129639935)
+  --> example.sol:14:16:
+   |
+14 |         return _a + _b;
+   |   
+Your task is to generate a reproduction smart contract that can re-trigger the identified vulnerability by interacting with the source program via a series of function calls. 
+The requirements are:
+1. Be creative in implementing realistic interaction patterns or adversarial logic to exploit the vulnerability, while ensuring the contract remains focused on reproducing the issue.
+
+2. The generated contract should:
+- Be compilable without errors or warnings.
+- Use the same Solidity version as the source program.
+- Include only the functions, variables, and logic necessary to trigger the vulnerability.
+- No explanations, comments, or justifications for the generated code are required.
+- Ensure the contract includes any setup logic needed for deployment and interaction with the source program.
+
+Generate the reproduction contract.

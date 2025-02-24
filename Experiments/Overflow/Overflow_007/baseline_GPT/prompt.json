@@ -1,0 +1,22 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+//https://github.com/ConsenSys/evm-analyzer-benchmark-suite
+pragma solidity ^0.4.23;
+
+contract IntegerOverflowMultiTxMultiFuncFeasible {
+    uint256 private initialized = 0;
+    uint256 public count = 1;
+
+    function init() public {
+        initialized = 1;
+    }
+
+    function run(uint256 input) {
+        if (initialized == 0) {
+            return;
+        }
+        // <yes> <report> ARITHMETIC
+        count -= input;
+    }
+}
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

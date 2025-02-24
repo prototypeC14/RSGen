@@ -1,0 +1,16 @@
+Error: Identifier already declared.
+  --> generated_contract.sol:35:1:
+   |
+35 | interface Bank {
+   | ^ (Relevant source part starts here and spans across multiple lines).
+Note: The previous declaration is here:
+ --> generated_contract.sol:4:1:
+  |
+4 | contract Bank {
+  | ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+ --> generated_contract.sol:8:5:
+  |
+8 |     constructor () public {
+  |     ^ (Relevant source part starts here and spans across multiple lines).

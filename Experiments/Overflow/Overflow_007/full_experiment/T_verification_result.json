@@ -1,0 +1,15 @@
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+a = 3, b = 0
+_a = 1
+_b = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+ = 0
+
+Transaction trace:
+Bank.constructor()
+State: a = 3, b = 0
+Bank.transfer(1, 115792089237316195423570985008687907853269984665640564039457584007913129639935)
+  --> generated_contract.sol:13:16:
+   |
+13 |         return _a + _b;
+   |    

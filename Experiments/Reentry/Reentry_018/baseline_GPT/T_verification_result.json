@@ -1,0 +1,5 @@
+Assertion violation might happen here.
+  --> generated_contract.sol:32:9:
+   |
+32 |         assert(msg.sender == a);
+   |   

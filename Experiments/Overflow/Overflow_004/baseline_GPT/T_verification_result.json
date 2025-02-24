@@ -1,0 +1,24 @@
+Warning: CHC: Underflow (resulting value less than 0) happens here.
+Counterexample:
+count = 1
+input = 2
+res = 0
+
+Transaction trace:
+IntegerOverflowBenign1.constructor()
+State: count = 1
+IntegerOverflowBenign1.run(2)
+ --> generated_contract.sol:9:20:
+  |
+9 |         uint res = count - input;
+  |                    ^^^^^^^^^^^^^
+
+Info: CHC: 2 verification condition(s) proved safe! Enable the model checker option "show proved safe" to see all of them.
+
+//success
+
+
+
+
+
+

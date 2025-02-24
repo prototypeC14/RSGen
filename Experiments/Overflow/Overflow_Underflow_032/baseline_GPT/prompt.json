@@ -1,0 +1,16 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+pragma solidity ^0.8.0;
+
+contract Bank {
+    uint public a;
+    uint public b;
+
+    constructor () public {
+        a = 3;
+        b = 0;
+    }
+    function transfer(uint _a, uint _b) public returns(uint) {
+        return _a + _b;
+    }
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

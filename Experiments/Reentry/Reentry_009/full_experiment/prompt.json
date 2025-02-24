@@ -1,0 +1,60 @@
+Assume you are a blockchain expert specializing in analyzing vulnerabilities in smart contracts via formal verification. 
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+pragma solidity ^0.8.0;
+
+contract Bank {
+    mapping (address => uint) balances;
+
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw(uint amount) public {
+        require(amount > 0);
+        require(amount <= balances[msg.sender]);
+
+        balances[msg.sender] -= amount;
+
+        (bool success,) = msg.sender.call{value: amount}("");
+        require(success);
+    }
+    function invariant(uint choice, uint u1, address a) public payable {
+        uint currb = balances[a];
+        if (choice == 0) {
+            deposit();
+        } else if (choice == 1) {
+            withdraw(u1);
+        } else {
+            require(false);
+        }
+        uint newb = balances[a];
+
+        require(newb < currb);
+        assert(choice == 1);
+        assert(msg.sender == a);
+}
+}
+
+The verifier <tool> identified a assertion failure in this program and generated a counterexample that describes the state and sequence of interactions leading to the property violation. 
+The counterexample is provided below: <counterexample text>.
+Counterexample:
+Warning: CHC: Assertion violation happens here.
+Counterexample:
+Assertion violation might happen here.
+  --> original.sol:35:9:
+   |
+35 |         assert(msg.sender == a);
+   |    
+
+Your task is to generate a reproduction smart contract that can re-trigger the identified vulnerability by interacting with the source program via a series of function calls. 
+The requirements are:
+1. Be creative in implementing realistic interaction patterns or adversarial logic to exploit the vulnerability, while ensuring the contract remains focused on reproducing the issue.
+
+2. The generated contract should:
+- Be compilable without errors or warnings.
+- Use the same Solidity version as the source program.
+- Include only the functions, variables, and logic necessary to trigger the vulnerability.
+- No explanations, comments, or justifications for the generated code are required.
+- Ensure the contract includes any setup logic needed for deployment and interaction with the source program.
+
+Generate the reproduction contract.

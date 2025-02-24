@@ -1,0 +1,5 @@
+Error: Member "lockTime" not found or not visible after argument-dependent lookup in contract ITimeLock.
+  --> generated_contract.sol:43:52:
+   |
+43 |         timeLock.increaseLockTime(type(uint).max - timeLock.lockTime(address(this)) + 1);
+   |                                                    ^^^^^^^^^^^^^^^^^

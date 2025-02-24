@@ -1,0 +1,397 @@
+Warning: Assertion checker does not yet implement this operator.
+   --> generated_contract.sol:321:34:
+    |
+321 |       rewardedAmount: 30000000 * 10 ** uint256(decimals),
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: Assertion checker does not yet implement this operator.
+   --> generated_contract.sol:322:25:
+    |
+322 |       frozenAmount: 0 * 10 ** uint256(decimals),
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+  --> generated_contract.sol:24:17:
+   |
+24 |     uint256 c = a - b;
+   |                 ^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+  --> generated_contract.sol:28:17:
+   |
+28 |     uint256 c = a + b;
+   |                 ^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+  --> generated_contract.sol:52:13:
+   |
+52 |     require(balances_intou10[msg.sender] - _value >= 0);  //bug
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+  --> generated_contract.sol:53:5:
+   |
+53 |     balances_intou10[msg.sender] -= _value;  //bug
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+  --> generated_contract.sol:54:5:
+   |
+54 |     balances_intou10[_to] += _value;  //bug
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 255) might happen here.
+  --> generated_contract.sol:64:16:
+   |
+64 |     vundflw1 = vundflw1 + p_intou20;   // overflow bug
+   |                ^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 255) might happen here.
+  --> generated_contract.sol:77:16:
+   |
+77 |     vundflw1 = vundflw1 + p_intou32;   // overflow bug
+   |                ^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+  --> generated_contract.sol:91:13:
+   |
+91 |     require(balances_intou22[msg.sender] - _value >= 0);  //bug
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+  --> generated_contract.sol:92:5:
+   |
+92 |     balances_intou22[msg.sender] -= _value;  //bug
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+  --> generated_contract.sol:93:5:
+   |
+93 |     balances_intou22[_to] += _value;  //bug
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 255) might happen here.
+  --> generated_contract.sol:99:16:
+   |
+99 |     vundflw1 = vundflw1 + p_intou12;   // overflow bug
+   |                ^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:104:15:
+    |
+104 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:110:9:
+    |
+110 |         lockTime_intou1[msg.sender] += _secondsToIncrease;  //overflow
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:115:9:
+    |
+115 |         payable(msg.sender).transfer(transferValue_intou1);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:122:13:
+    |
+122 |     require(balances_intou2[msg.sender] - _value >= 0);  //bug
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:123:5:
+    |
+123 |     balances_intou2[msg.sender] -= _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:124:5:
+    |
+124 |     balances_intou2[_to] += _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:131:9:
+    |
+131 |         lockTime_intou17[msg.sender] += _secondsToIncrease;  //overflow
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:136:9:
+    |
+136 |         payable(msg.sender).transfer(transferValue_intou17);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:142:15:
+    |
+142 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:148:15:
+    |
+148 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:155:9:
+    |
+155 |         lockTime_intou13[msg.sender] += _secondsToIncrease;  //overflow
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:160:9:
+    |
+160 |         payable(msg.sender).transfer(transferValue_intou13);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:173:13:
+    |
+173 |     require(balances_intou38[msg.sender] - _value >= 0);  //bug
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:174:5:
+    |
+174 |     balances_intou38[msg.sender] -= _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:175:5:
+    |
+175 |     balances_intou38[_to] += _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 255) might happen here.
+   --> generated_contract.sol:187:16:
+    |
+187 |     vundflw1 = vundflw1 + p_intou4;   // overflow bug
+    |                ^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:196:15:
+    |
+196 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:207:15:
+    |
+207 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:219:13:
+    |
+219 |     require(balances_intou14[msg.sender] - _value >= 0);  //bug
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:220:5:
+    |
+220 |     balances_intou14[msg.sender] -= _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:221:5:
+    |
+221 |     balances_intou14[_to] += _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:236:13:
+    |
+236 |     require(balances_intou30[msg.sender] - _value >= 0);  //bug
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:237:5:
+    |
+237 |     balances_intou30[msg.sender] -= _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:238:5:
+    |
+238 |     balances_intou30[_to] += _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:253:9:
+    |
+253 |         lockTime_intou37[msg.sender] += _secondsToIncrease;  //overflow
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:258:9:
+    |
+258 |         payable(msg.sender).transfer(transferValue_intou37);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:263:15:
+    |
+263 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:270:9:
+    |
+270 |         lockTime_intou9[msg.sender] += _secondsToIncrease;  //overflow
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:275:9:
+    |
+275 |         payable(msg.sender).transfer(transferValue_intou9);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:282:9:
+    |
+282 |         lockTime_intou25[msg.sender] += _secondsToIncrease;  //overflow
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:287:9:
+    |
+287 |         payable(msg.sender).transfer(transferValue_intou25);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:292:15:
+    |
+292 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:306:13:
+    |
+306 |     require(balances_intou26[msg.sender] - _value >= 0);  //bug
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:307:5:
+    |
+307 |     balances_intou26[msg.sender] -= _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:308:5:
+    |
+308 |     balances_intou26[_to] += _value;  //bug
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Out of bounds access might happen here.
+   --> generated_contract.sol:319:19:
+    |
+319 |     frozenWallets[frozenAddresses[0]] = frozenWallet({
+    |                   ^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:321:23:
+    |
+321 |       rewardedAmount: 30000000 * 10 ** uint256(decimals),
+    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:322:21:
+    |
+322 |       frozenAmount: 0 * 10 ** uint256(decimals),
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:323:19:
+    |
+323 |       frozenTime: block.timestamp + 1 * 1 hours //seconds, minutes, hours, days
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:326:53:
+    |
+326 |     for (uint256 i = 0; i < frozenAddresses.length; i++) {
+    |                                                     ^^^
+
+Warning: CHC: Out of bounds access might happen here.
+   --> generated_contract.sol:327:17:
+    |
+327 |       balanceOf[frozenAddresses[i]] = frozenWallets[frozenAddresses[i]].rewardedAmount;
+    |                 ^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Out of bounds access might happen here.
+   --> generated_contract.sol:327:53:
+    |
+327 |       balanceOf[frozenAddresses[i]] = frozenWallets[frozenAddresses[i]].rewardedAmount;
+    |                                                     ^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Out of bounds access might happen here.
+   --> generated_contract.sol:328:61:
+    |
+328 |       totalSupply = SafeMath.add(totalSupply, frozenWallets[frozenAddresses[i]].rewardedAmount);
+    |                                                             ^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 255) might happen here.
+   --> generated_contract.sol:333:16:
+    |
+333 |     vundflw1 = vundflw1 + p_intou8;   // overflow bug
+    |                ^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:339:24:
+    |
+339 |     balanceOf[_from] = balanceOf[_from] - _value;
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:340:22:
+    |
+340 |     balanceOf[_to] = balanceOf[_to] + _value;
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:345:15:
+    |
+345 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 255) might happen here.
+   --> generated_contract.sol:359:16:
+    |
+359 |     vundflw1 = vundflw1 + p_intou36;   // overflow bug
+    |                ^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Underflow (resulting value less than 0) might happen here.
+   --> generated_contract.sol:371:15:
+    |
+371 |     vundflw = vundflw -10;   // underflow bug
+    |               ^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 255) might happen here.
+   --> generated_contract.sol:383:16:
+    |
+383 |     vundflw1 = vundflw1 + p_intou40;   // overflow bug
+    |                ^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Overflow (resulting value larger than 2**256 - 1) might happen here.
+   --> generated_contract.sol:392:9:
+    |
+392 |         lockTime_intou33[msg.sender] += _secondsToIncrease;  //overflow
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:397:9:
+    |
+397 |         payable(msg.sender).transfer(transferValue_intou33);
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: CHC: Insufficient funds might happen here.
+   --> generated_contract.sol:437:9:
+    |
+437 |         payable(attacker).transfer(address(this).balance);
+    |      
+
+// success
